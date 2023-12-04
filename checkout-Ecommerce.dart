@@ -37,19 +37,23 @@ class MyApp extends StatelessWidget {
           // ), //ElevatedButton(style: RoundSliderThumbShape, ),
           //Padding(padding: EdgeInsets.all(23.3), child: )
           leading: Padding(
-            padding: const EdgeInsets.fromLTRB(
-                8, 9, 11, 9), //191900EdgeInsets.fromLTRB(21, 6, 0, 15),
-            child: OutlinedButton(
+            padding:
+                const EdgeInsets.only(top: 8, bottom: 8, left: 8, right: 8),
+            child: Container(
+              height: 5,
+              width: 5,
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.black),
+                borderRadius: BorderRadius.circular(50),
+              ),
               child: Icon(
                 Icons.arrow_back,
               ),
-              onPressed: () {
-                print('backed!');
-                // AlertDialog(
-                //   title: const Text('AlertDialog Title'),
-                //   content: Text('This is a demo alert dialog.'),
-                // );
-              },
+
+              // AlertDialog(
+              //   title: const Text('AlertDialog Title'),
+              //   content: Text('This is a demo alert dialog.'),
+              // );
             ),
           ),
           title: Padding(
