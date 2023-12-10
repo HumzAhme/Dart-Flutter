@@ -7,6 +7,7 @@ import 'package:simple_gradient_text/simple_gradient_text.dart';
 
 //call all widgets in home: not happening
 //can only one thing widget like scaffold can be returned in one stl widget?
+//text input border increase & text in lines as para
 //
 
 void main() => runApp(const MyApp());
@@ -223,18 +224,285 @@ class BtomNavBar extends StatelessWidget {
   }
 }
 
+var txt1 = TextEditingController();
+
 class Screen1 extends StatelessWidget {
   const Screen1({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text(
-          'Screen1',
-          style: TextStyle(fontSize: 30),
+    return Scaffold(
+      body: ListView(children: [
+        Center(
+          child: Container(
+            decoration: const BoxDecoration(
+              borderRadius: BorderRadius.all(
+                Radius.circular(20),
+              ),
+              color: const Color.fromARGB(255, 225, 217, 217),
+            ),
+            width: 346,
+            height: 178,
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Expanded(
+                      child: TextField(
+                        style: GoogleFonts.gabriela(
+                            color: Color.fromARGB(255, 176, 237, 232)),
+                        controller: txt1,
+                        obscureText: true,
+                        //obscuringCharacter: '^',
+                        decoration: InputDecoration(
+                          hintText: 'Password',
+                          hintStyle: GoogleFonts.gabriela(
+                              fontSize: 13.0,
+                              color: Color.fromARGB(255, 176, 237, 232)),
+
+                          focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  width: 2,
+                                  color: Color.fromRGBO(23, 255, 182, 0.702)),
+                              borderRadius: BorderRadius.circular(31)),
+                          //
+                          enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  width: 1,
+                                  color: Color.fromRGBO(234, 235, 207, 0.702)),
+                              borderRadius: BorderRadius.circular(31)),
+                          prefixIcon: Icon(
+                            Icons.password_sharp,
+                            color: Color.fromARGB(255, 74, 209, 227),
+                          ),
+                          suffixIcon: IconButton(
+                            color: const Color.fromARGB(255, 74, 209, 227),
+                            icon: Icon(
+                              Icons.remove_red_eye_sharp,
+                            ),
+                            onPressed: () {},
+                          ),
+                        ),
+                      ),
+                    ),
+                    IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          Icons.cancel,
+                          color: Colors.cyan,
+                        )),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 16.0),
+                      child: Text(
+                        '0/150',
+                        textAlign: TextAlign.left,
+                        style: TextStyle(color: Colors.blueGrey),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 206.0),
+                      child: IconButton(
+                          onPressed: () {},
+                          icon: Icon(
+                            Icons.auto_fix_normal,
+                          )),
+                    ),
+                    IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          Icons.voice_chat,
+                        ))
+                  ],
+                ),
+              ],
+            ),
+          ),
         ),
-      ),
+        Divider(
+          color: Colors.white,
+        ),
+        Row(
+          children: [
+            Padding(
+              padding: EdgeInsets.only(left: 18, right: 15),
+              child: Container(
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(7),
+                  ),
+                  color: const Color.fromARGB(255, 225, 217, 217),
+                ),
+                width: 89,
+                height: 38,
+                alignment: Alignment.centerLeft,
+                padding: EdgeInsets.only(left: 0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Text('Image'),
+                    IconButton(
+                      onPressed: () {},
+                      icon: Icon(
+                        Icons.image_aspect_ratio,
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 0, right: 0),
+              child: Container(
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(7),
+                  ),
+                  color: const Color.fromARGB(255, 225, 217, 217),
+                ),
+                width: 71,
+                height: 38,
+                alignment: Alignment.centerLeft,
+                padding: EdgeInsets.only(left: 0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Icon(
+                      Icons.window_outlined,
+                    ),
+                    Text('1:1'),
+                    Icon(Icons.arrow_downward_rounded),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+        Divider(
+          color: Colors.white,
+        ),
+        Center(
+          child: Container(
+            decoration: const BoxDecoration(
+              borderRadius: BorderRadius.all(
+                Radius.circular(20),
+              ),
+              color: const Color.fromARGB(255, 225, 217, 217),
+            ),
+            width: 346,
+            height: 98,
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Expanded(
+                      child: TextField(
+                        style: GoogleFonts.gabriela(
+                            color: Color.fromARGB(255, 176, 237, 232)),
+                        controller: txt1,
+                        obscureText: true,
+                        //obscuringCharacter: '^',
+                        decoration: InputDecoration(
+                          hintText: 'Password',
+                          hintStyle: GoogleFonts.gabriela(
+                              fontSize: 13.0,
+                              color: Color.fromARGB(255, 176, 237, 232)),
+
+                          focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  width: 2,
+                                  color: Color.fromRGBO(23, 255, 182, 0.702)),
+                              borderRadius: BorderRadius.circular(31)),
+                          //
+                          enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  width: 1,
+                                  color: Color.fromRGBO(234, 235, 207, 0.702)),
+                              borderRadius: BorderRadius.circular(31)),
+                          prefixIcon: Icon(
+                            Icons.password_sharp,
+                            color: Color.fromARGB(255, 74, 209, 227),
+                          ),
+                          suffixIcon: IconButton(
+                            color: const Color.fromARGB(255, 74, 209, 227),
+                            icon: Icon(
+                              Icons.remove_red_eye_sharp,
+                            ),
+                            onPressed: () {},
+                          ),
+                        ),
+                      ),
+                    ),
+                    IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          Icons.cancel,
+                          color: Colors.cyan,
+                        )),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 16.0),
+                      child: Text(
+                        '0/150',
+                        textAlign: TextAlign.left,
+                        style: TextStyle(color: Colors.blueGrey),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 206.0),
+                      child: IconButton(
+                          onPressed: () {},
+                          icon: Icon(
+                            Icons.auto_fix_normal,
+                          )),
+                    ),
+                    IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          Icons.voice_chat,
+                        ))
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+        Divider(
+          color: Colors.white70,
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 18.0, top: 10.8),
+          child: Row(
+            children: [
+              Text(
+                'Styles',
+                style: TextStyle(fontWeight: FontWeight.w800, fontSize: 16
+                    //fontFamily: 'georgia',
+                    ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 238.0),
+                child: TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      'See all',
+                      style: TextStyle(
+                        color: Colors.blueAccent,
+                        decoration: TextDecoration.underline,
+                        // fontStyle: FontStyle.italic
+                      ),
+                    )),
+              )
+            ],
+          ),
+        ),
+      ]),
     );
   }
 }
