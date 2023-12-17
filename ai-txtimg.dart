@@ -8,8 +8,7 @@ import 'package:simple_gradient_text/simple_gradient_text.dart';
 //call all widgets in home: not happening: [solved]: call one main widget in home which within itself calls other widgets.
 //can only one thing widget like scaffold can be returned in one stl widget? yes.
 //text input border increase & text in lines as para. [solved] take Text() instead of textField().
-
-//The image on each widget called must be different sourced in realtime to that calling & not predefined inside widget.
+//The image on each widget called must be different sourced in realtime to that calling & not predefined inside widget.[solved] through array hardcoding a list of images init, call the counterIncrement class that you made instead of function which increments it bfr calling the same above widget again in listview. All is done in stateless manner as thet are different widgets being called and same already present widget isn't being changed on screen, but multiple being created with the same code.
 
 //- responsive ai writing;stful
 //- dropdown menu;stful
@@ -243,6 +242,21 @@ String dropdownValue = list.first;
 //     );
 //   }
 // }
+
+class sample1 extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return sample2();
+  }
+}
+
+class sample2 extends State<sample1> {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}
+
 class DropdownMenuExample extends StatefulWidget {
   const DropdownMenuExample({super.key});
 
@@ -257,6 +271,7 @@ class _DropdownMenuExampleState extends State<DropdownMenuExample> {
   Widget build(BuildContext context) {
     return DropdownMenu<String>(
       initialSelection: list.first,
+      width: 58,
       onSelected: (String? value) {
         // This is called when the user selects an item.
         setState(() {
@@ -508,13 +523,13 @@ class Screen1 extends StatelessWidget {
                     Icon(
                       Icons.window_outlined,
                     ),
-                    Text('1:1'),
-                    IconButton(
-                      icon: Icon(Icons.arrow_downward_rounded),
-                      onPressed: () {
-                        DropdownMenuExample();
-                      },
-                    ),
+                    Text('1:1'), DropdownMenuExample(),
+                    // IconButton(
+                    //   icon: Icon(Icons.arrow_downward_rounded),
+                    //   onPressed: () {
+                    //     DropdownMenuExample();
+                    //   },
+                    // ),
                   ],
                 ),
               ),
@@ -645,10 +660,15 @@ class Screen1 extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           child: Row(
             children: [
+              cnntr0(),
               boximag(),
+              cnntr(),
               boximag(),
+              cnntr(),
               boximag(),
+              cnntr(),
               boximag(),
+              cnntr(),
             ],
           ),
         ),
@@ -762,14 +782,61 @@ class Screen1 extends StatelessWidget {
           color: Colors.white,
           thickness: 13,
         ),
+        Container(
+          child: DropdownMenuExample(),
+        ),
       ]),
     );
   }
 }
 
-class boximag extends StatelessWidget {
+var cnt = 0;
+const List<String> lst = <String>[
+  'imgz/kor.jpg',
+  'imgz/chl.jpg',
+  'imgz/clc.png',
+  'imgz/fns.jpg',
+  'imgz/scn.jpg'
+];
+
+class cnntr extends StatelessWidget {
+  const cnntr({super.key});
+  @override
+  Widget build(BuildContext context) {
+    cnt = cnt + 1;
+
+    return SizedBox(
+      height: 0,
+      width: 0,
+    );
+  }
+}
+
+class cnntr0 extends StatelessWidget {
+  const cnntr0({super.key});
+  @override
+  Widget build(BuildContext context) {
+    cnt = 0;
+
+    return SizedBox(
+      height: 0,
+      width: 0,
+    );
+  }
+}
+// var cnntr = (cnt) {
+//   cnt++;
+// };
+
+class boximag extends StatefulWidget {
   const boximag({super.key});
 
+  @override
+  State<boximag> createState() => _boximagState();
+}
+
+class _boximagState extends State<boximag> {
+  var cn = 0;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -789,7 +856,7 @@ class boximag extends StatelessWidget {
                     top: 0,
                   ),
                   child: Image.asset(
-                    'imgz/kor.jpg',
+                    lst[cnt],
                     width: 270,
                     height: 324,
                     fit: BoxFit.cover,
@@ -815,9 +882,13 @@ class Rectimag extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      color: Colors.black,
       //box-image container twrds right scroll
-      padding: EdgeInsets.symmetric(horizontal: 13.7, vertical: 12.1),
-      alignment: Alignment.center,
+      padding: EdgeInsets.symmetric(
+        horizontal: 13.7,
+        vertical: 12.1,
+      ), //MediaQuery.of(context).size.height * 0.05),
+      //alignment: Alignment.center,
       child: Column(
         children: [
           ClipRRect(
