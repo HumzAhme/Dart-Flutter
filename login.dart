@@ -2,9 +2,10 @@ import 'dart:html';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+//import 'dart:ui.Shader';
 
-//image not merged with background
-//change the relative setting of height width and rest stuff as per the mobiles' height width
+//-image not merged with background
+//-change the relative setting of height width and rest stuff as per the mobiles' height width
 //light colored 'hintText' & subsequent input [DONE]  TextField(style: GoogleFonts.gabriela(color: Color.fromARGB(255, 176, 237, 232)),),
 
 var emaltext = TextEditingController();
@@ -48,7 +49,7 @@ class MyApp extends StatelessWidget {
 //
 Widget Lgin = Center(
   child: Container(
-    width: 385,
+    //width: 385,
     height: 677,
     //color: Color.fromARGB(234, 29, 6, 120),
 
@@ -58,17 +59,20 @@ Widget Lgin = Center(
         ),
     child: Column(
       children: [
+        // ShaderMask(shaderCallback: (rect){return shader},
+        // child:
         Container(
           decoration: BoxDecoration(
               image: DecorationImage(
-            image: AssetImage('imagz/shnp.jpg'),
+            image: AssetImage('imagz/shnp.png'),
           )),
         ),
+        //),
         Padding(
           padding: const EdgeInsets.only(top: 44.0),
           child: SizedBox(
             height: 233,
-            width: 224,
+            //  width: 224,
             child: Image.asset(
               'imagz/shnp.jpg',
               //fit: BoxFit.,
@@ -106,108 +110,112 @@ Widget Lgin = Center(
             ),
           ),
         ),
-        Container(
-            width: 300,
-            child: Column(
-              children: [
-                TextField(
-                  style: GoogleFonts.gabriela(
+        Padding(
+          padding: const EdgeInsets.only(left: 23.0, right: 23),
+          child: Container(
+              //  width: 300,
+              child: Column(
+            children: [
+              TextField(
+                style: GoogleFonts.gabriela(
+                    color: Color.fromARGB(255, 176, 237, 232)),
+                //keyboardType: TextInputType....,
+                controller: emaltext,
+                decoration: InputDecoration(
+                  hintText: 'Enter Email',
+                  hintStyle: GoogleFonts.gabriela(
+                      fontSize: 13.0,
                       color: Color.fromARGB(255, 176, 237, 232)),
-                  //keyboardType: TextInputType....,
-                  controller: emaltext,
-                  decoration: InputDecoration(
-                    hintText: 'Enter Email',
-                    hintStyle: GoogleFonts.gabriela(
-                        fontSize: 13.0,
-                        color: Color.fromARGB(255, 176, 237, 232)),
 
-                    focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            width: 2,
-                            color: Color.fromRGBO(23, 255, 182, 0.702)),
-                        borderRadius: BorderRadius.circular(31)),
-                    //
-                    enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            width: 1,
-                            color: Color.fromRGBO(234, 235, 207, 0.702)),
-                        borderRadius: BorderRadius.circular(31)),
-                    prefixIcon: Icon(
-                      Icons.email_sharp,
-                      color: const Color.fromARGB(255, 74, 209, 227),
+                  focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          width: 2, color: Color.fromRGBO(23, 255, 182, 0.702)),
+                      borderRadius: BorderRadius.circular(31)),
+                  //
+                  enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          width: 1,
+                          color: Color.fromRGBO(234, 235, 207, 0.702)),
+                      borderRadius: BorderRadius.circular(31)),
+                  prefixIcon: Icon(
+                    Icons.email_sharp,
+                    color: const Color.fromARGB(255, 74, 209, 227),
+                  ),
+                  suffixIcon: IconButton(
+                    color: const Color.fromARGB(255, 74, 209, 227),
+                    icon: Icon(
+                      Icons.supervised_user_circle_sharp,
                     ),
-                    suffixIcon: IconButton(
-                      color: const Color.fromARGB(255, 74, 209, 227),
-                      icon: Icon(
-                        Icons.supervised_user_circle_sharp,
-                      ),
-                      onPressed: () {},
-                    ),
+                    onPressed: () {},
                   ),
                 ),
-                SizedBox(
-                  height: 23,
-                ),
-                TextField(
-                  style: GoogleFonts.gabriela(
+              ),
+              SizedBox(
+                height: 23,
+              ),
+              TextField(
+                style: GoogleFonts.gabriela(
+                    color: Color.fromARGB(255, 176, 237, 232)),
+                controller: pastxt,
+                obscureText: true,
+                //obscuringCharacter: '^',
+                decoration: InputDecoration(
+                  hintText: 'Password',
+                  hintStyle: GoogleFonts.gabriela(
+                      fontSize: 13.0,
                       color: Color.fromARGB(255, 176, 237, 232)),
-                  controller: pastxt,
-                  obscureText: true,
-                  //obscuringCharacter: '^',
-                  decoration: InputDecoration(
-                    hintText: 'Password',
-                    hintStyle: GoogleFonts.gabriela(
-                        fontSize: 13.0,
-                        color: Color.fromARGB(255, 176, 237, 232)),
 
-                    focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            width: 2,
-                            color: Color.fromRGBO(23, 255, 182, 0.702)),
-                        borderRadius: BorderRadius.circular(31)),
-                    //
-                    enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            width: 1,
-                            color: Color.fromRGBO(234, 235, 207, 0.702)),
-                        borderRadius: BorderRadius.circular(31)),
-                    prefixIcon: Icon(
-                      Icons.password_sharp,
-                      color: Color.fromARGB(255, 74, 209, 227),
+                  focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          width: 2, color: Color.fromRGBO(23, 255, 182, 0.702)),
+                      borderRadius: BorderRadius.circular(31)),
+                  //
+                  enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          width: 1,
+                          color: Color.fromRGBO(234, 235, 207, 0.702)),
+                      borderRadius: BorderRadius.circular(31)),
+                  prefixIcon: Icon(
+                    Icons.password_sharp,
+                    color: Color.fromARGB(255, 74, 209, 227),
+                  ),
+                  suffixIcon: IconButton(
+                    color: const Color.fromARGB(255, 74, 209, 227),
+                    icon: Icon(
+                      Icons.remove_red_eye_sharp,
                     ),
-                    suffixIcon: IconButton(
-                      color: const Color.fromARGB(255, 74, 209, 227),
-                      icon: Icon(
-                        Icons.remove_red_eye_sharp,
-                      ),
-                      onPressed: () {},
-                    ),
+                    onPressed: () {},
                   ),
                 ),
-                SizedBox(
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 23.0, right: 23),
+                child: SizedBox(
                   height: 23,
                 ),
-                SizedBox(
-                  width: 300,
-                  height: 54,
-                  child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          textStyle: GoogleFonts.gabriela(
-                            //instead of TextStyle()
-                            fontSize: 17,
-                            fontWeight: FontWeight.w700,
-                          ),
-                          backgroundColor:
-                              const Color.fromARGB(255, 105, 240, 226)),
-                      onPressed: () {
-                        String uemal = emaltext.text.toString();
-                        String upas = pastxt.text;
-                        print('$uemal + $upas');
-                      },
-                      child: Text('Login')),
-                ),
-              ],
-            )),
+              ),
+              SizedBox(
+                width: 500,
+                height: 54,
+                child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        textStyle: GoogleFonts.gabriela(
+                          //instead of TextStyle()
+                          fontSize: 17,
+                          fontWeight: FontWeight.w700,
+                        ),
+                        backgroundColor:
+                            const Color.fromARGB(255, 105, 240, 226)),
+                    onPressed: () {
+                      String uemal = emaltext.text.toString();
+                      String upas = pastxt.text;
+                      print('$uemal + $upas');
+                    },
+                    child: Text('Login')),
+              ),
+            ],
+          )),
+        ),
       ],
     ),
   ),
